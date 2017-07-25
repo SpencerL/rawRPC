@@ -1,4 +1,4 @@
-## 基于阻塞IO的简单RPC框架(同步和异步实现)
+## 简单RPC框架(同步和异步实现)
 1. 服务端提供了阻塞IO和异步IO(基于Selector,单线程)两种实现
 2. 提供了Provider端和Consumer端的hook
 3. 使用Java自带序列化
