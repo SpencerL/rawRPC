@@ -1,4 +1,4 @@
-## 简单RPC框架(同步和异步实现)
+## 简单RPC服务demo(同步和异步实现)
 1. 服务端提供了阻塞IO,异步IO(基于Selector,单线程)，异步+线程池３种实现
 2. 异步+线程池实现(模仿netty)，一个服务控制线程负责监听新的连接事件，然后转交给Worker线程处理（线程池）,
     worker线程内部也用selector监听读ready和write ready，并触发读写操作。该实现提供了timeout超时设置
