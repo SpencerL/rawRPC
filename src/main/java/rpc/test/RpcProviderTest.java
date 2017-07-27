@@ -3,6 +3,7 @@ package rpc.test;
 import rpc.aop.ProviderHook;
 import rpc.aop.ProviderHookImpl;
 import rpc.api.provider.BioProvider;
+import rpc.api.provider.NioProvider;
 import rpc.api.provider.Provider;
 import rpc.api.provider.SelProvider;
 import rpc.service.HelloService;
@@ -27,7 +28,12 @@ public class RpcProviderTest {
         // Bio 同步阻塞测试
         //Provider providerImpl = new BioProvider();
 
-        providerImpl.export(serviceImpl, providerHook, port);
+        //providerImpl.export(serviceImpl, providerHook, port);
+
+        // selector + 线程池测试
+        int clientTimeout = 3000;
+        NioProvider provider = new NioProvider(port, serviceImpl, providerHook, clientTimeout);
+        provider.start();
 
     }
 }
